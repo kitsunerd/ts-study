@@ -13,3 +13,10 @@ export const DEFAULT_SUMMONER_DTO: RiotSummonerDto = {
   puuid: "",
   summonerLevel: -1,
 };
+
+export const DEFAULT_CLASH_PLAYER_DTO: RiotClashPlayerDto = {
+  summonerId: "",
+  teamId: "",
+  position: "",
+  role: "",
+};

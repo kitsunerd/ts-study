@@ -17,4 +17,11 @@ module.exports = function (app) {
       headers: headers,
     })
   );
+  app.use(
+    createProxyMiddleware(process.env.REACT_APP_RIOT_CLASH_CONTEXT, {
+      target: process.env.REACT_APP_TARGET_JP_URL,
+      changeOrigin: true,
+      headers: headers,
+    })
+  );
 };

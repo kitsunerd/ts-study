@@ -1,15 +1,33 @@
+import { Fragment } from "react";
+
 export const MainPagePresenter = (props: PresenterProps) => {
-  const { handleChangeSummonerName, handleSubmit, summonerDto, errorMessage } =
-    props;
+  const {
+    handleChangeSummonerName,
+    handleSubmit,
+    opggUrls,
+    teamName,
+    errorMessage,
+  } = props;
   return (
     <div>
       <span>サモナーネーム</span>
       <input type="text" name="user-name" onChange={handleChangeSummonerName} />
-      <input type="button" onClick={handleSubmit} value="送信" />
+      <input type="button" value="送信" onClick={handleSubmit} />
       <div>
-        <span>dto</span>
+        <span>team name</span>
         <br />
-        <pre>{JSON.stringify(summonerDto, null, "\t")}</pre>
+        {teamName}
+        <br />
+        <span>opgg urls</span>
+        <br />
+        {opggUrls.map((url, i) => (
+          <Fragment key={i}>
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              {url}
+            </a>
+            <br />
+          </Fragment>
+        ))}
         <br />
         <br />
         {errorMessage && (

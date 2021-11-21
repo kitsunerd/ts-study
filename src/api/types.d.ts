@@ -14,9 +14,20 @@ interface RiotSummonerDto {
   summonerLevel: number;
 }
 
-interface ResponseError {
-  status: {
-    message: string;
-    status_code: number;
-  };
+interface RiotClashPlayerDto {
+  summonerId: string;
+  teamId: string;
+  position: string;
+  role: string;
+}
+
+interface RiotClashTeamDto {
+  id: string;
+  tournamentId: number;
+  name: string;
+  iconId: number;
+  tier: number;
+  captain: string;
+  abbreviation: string;
+  players: Omit<RiotClashPlayerDto, "teamId">[];
 }
